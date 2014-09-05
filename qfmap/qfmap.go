@@ -1,10 +1,11 @@
 package qfmap
 
-/* UnionFind contains information about how given numbers are related. Use
+/*
+UnionFind contains information about how given numbers are related. Use
 UnionFind.Union(2, 3) to specify that 2 and 3 belong to the same set.
-Additional calls to Union can create relationships by the transitive
-property. Query the relationship between numbers with the Connected or Find
-methods.
+Additional calls to Union can create relationships by the transitive property.
+Query the relationship between numbers with the Connected or Find methods.
+
 This implementation of UnionFind uses quick-find and stores connection data in
 a map.
 */
