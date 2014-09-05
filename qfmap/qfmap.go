@@ -1,3 +1,4 @@
+// qfmap implements union-find with the quick-find algorithms using maps to store set relationships.
 package qfmap
 
 /*

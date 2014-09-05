@@ -1,3 +1,4 @@
+// qfarray implements union-find with the quick-find algorithms using arrays to store set relationships.
 package qfarray
 
 /*
