@@ -21,8 +21,14 @@ func New() *UnionFind {
 }
 
 // Find returns the set ID of a given element.
-func (uf UnionFind) Find(p int) int {
-	return uf.id[p]
+func (uf *UnionFind) Find(p int) int {
+	p_id, p_in_map := uf.id[p]
+	if !p_in_map {
+		uf.id[p] = uf.next
+		p_id = uf.next
+		uf.next++
+	}
+	return p_id
 }
 
 // Connected determines whether two elements belong to the same set.
