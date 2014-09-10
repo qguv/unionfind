@@ -55,6 +55,31 @@ func TestConnected(t *testing.T) {
 	}
 }
 
+// A white-box test for a complicated scenario
+// init(10); 6-0 3-4 5-8 7-2 2-1 5-7 0-3 4-2
+// Everything but nine should be connected
+func TestFind(t *testing.T) {
+	uf := New(10)
+	uf.Union(6, 0)
+	uf.Union(3, 4)
+	uf.Union(5, 8)
+	uf.Union(7, 2)
+	uf.Union(2, 1)
+	uf.Union(5, 7)
+	uf.Union(0, 3)
+	uf.Union(4, 2)
+
+	commonFind := uf.Find(0)
+	for i := 1; i < 9; i++ {
+		if f := uf.Find(i); f != commonFind {
+			t.Errorf(
+				"find is incorrect for %v: found %v, should be %v\n",
+				i, f, commonFind,
+			)
+		}
+	}
+}
+
 func slicesEqual(xs, ys []int) bool {
 	for i, x := range xs {
 		y := ys[i]
